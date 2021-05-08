@@ -1,0 +1,1 @@
+export {SyncPosts} from './SyncPosts';

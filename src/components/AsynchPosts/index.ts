@@ -1,0 +1,1 @@
+export {AsyncPosts} from './AsyncPosts';
