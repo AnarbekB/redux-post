@@ -1,7 +1,7 @@
 import React from 'react';
-import {PostForm} from "./components/PostForm";
-import {SyncPosts} from "./components/SynchPosts";
 import {AsyncPosts} from "./components/AsynchPosts";
+import SyncPosts from "./components/SynchPosts/SyncPosts";
+import PostForm from "./components/PostForm/PostForm";
 
 function App() {
   return (
@@ -14,7 +14,7 @@ function App() {
         <div className='row'>
             <div className='col'>
                 <h2>Synchronous</h2>
-                <SyncPosts posts={[{id: 1, name: 'Hello'}, {id: 2, name: 'World'}]}/>
+                <SyncPosts />
             </div>
             <div className='col'>
                 <h2>Asynchronous</h2>

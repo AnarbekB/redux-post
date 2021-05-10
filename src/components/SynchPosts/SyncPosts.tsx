@@ -1,12 +1,14 @@
 import React from "react";
+import {connect} from "react-redux";
 import {IPost} from "../../types";
 import {Post} from "../Post";
+import {IRootState} from "../../types/state";
 
 interface Props {
     posts: IPost[]
 }
 
-export function SyncPosts( props: Props ) {
+function SyncPosts(props: Props) {
     if (props.posts.length === 0) {
         return <p className="text-center">Posts not found</p>
     }
@@ -15,3 +17,11 @@ export function SyncPosts( props: Props ) {
         props.posts.map(post => <Post post={post} key={post.id}/>)
     }</>
 }
+
+const mapStateToProps = (state: IRootState) => {
+    return {
+        posts: state.posts.posts
+    } as Props;
+}
+
+export default connect(mapStateToProps)(SyncPosts)

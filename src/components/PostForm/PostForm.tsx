@@ -1,15 +1,20 @@
 import React, {ChangeEvent, SyntheticEvent, useState} from "react";
-import {IPost} from "../../types";
+import {connect} from "react-redux";
+import {ICreatePostAction, IPost} from "../../types";
+import {createPost} from "../../redux/actions/posts";
 
-export function PostForm() {
+interface ILoginFormProps {
+    createPost(post: IPost): ICreatePostAction;
+}
+
+function PostForm(props: ILoginFormProps) {
     const [title, setTitle] = useState('');
 
     const submitHandler = (event: SyntheticEvent): void => {
         event.preventDefault();
 
         let newPost: IPost = {id: Number(Date.now().toString()), name: title};
-        console.log(newPost);
-
+        props.createPost(newPost);
         setTitle('');
     }
 
@@ -39,3 +44,9 @@ export function PostForm() {
         </form>
     );
 }
+
+const mapDispatchToProps = {
+    createPost
+};
+
+export default connect(null, mapDispatchToProps)(PostForm);
