@@ -36,6 +36,7 @@ function PostForm(props: ILoginFormProps) {
                         aria-describedby="inputGroup-sizing-default"
                         name="title"
                         value={title}
+                        required={true}
                         onChange={changeInputHandler}
                     />
                 </div>
