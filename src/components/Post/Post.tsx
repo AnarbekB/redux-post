@@ -10,7 +10,7 @@ export function Post(props : Props) {
         <div className="card">
             <div className="card-body">
                 <h5 className="card-title">#{props.post.id}</h5>
-                <p className="card-text">{props.post.name}</p>
+                <p className="card-text">{props.post.title}</p>
             </div>
         </div>
     );

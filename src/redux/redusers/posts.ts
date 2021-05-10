@@ -1,8 +1,8 @@
 import {ICreatePostAction, IPostState} from "../../types";
-import {CREATE_POST} from "../types";
+import {CREATE_POST, FETCH_POSTS} from "../types";
 
 const initialState: IPostState = {
-    posts: [{id: 3, name: 'Hello'}, {id: 2, name: 'Redux'}],
+    posts: [{id: 3, title: 'Hello'}, {id: 2, title: 'Redux'}],
     fetchedPost: [],
 };
 
@@ -10,6 +10,8 @@ export const postReducer = (state: IPostState = initialState, action: ICreatePos
     switch (action.type) {
         case CREATE_POST:
             return {...state, posts: [...state.posts, action.payload]};
+        case FETCH_POSTS:
+            return {...state, fetchedPost: action.payload}
         default:
             return state;
     }

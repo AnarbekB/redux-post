@@ -13,7 +13,7 @@ function PostForm(props: ILoginFormProps) {
     const submitHandler = (event: SyntheticEvent): void => {
         event.preventDefault();
 
-        let newPost: IPost = {id: Number(Date.now().toString()), name: title};
+        let newPost: IPost = {id: Number(Date.now().toString()), title: title};
         props.createPost(newPost);
         setTitle('');
     }

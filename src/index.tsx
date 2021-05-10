@@ -5,10 +5,13 @@ import reportWebVitals from './reportWebVitals';
 import {applyMiddleware, createStore} from 'redux';
 import {rootReducer} from "./redux/redusers";
 import {Provider} from 'react-redux'
+import thunk from 'redux-thunk';
 import {composeWithDevTools} from "redux-devtools-extension";
 
 const enhancer = composeWithDevTools(
-    applyMiddleware(),
+    applyMiddleware(
+        thunk
+    ),
 );
 
 const store = createStore(

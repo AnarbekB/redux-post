@@ -15,7 +15,7 @@ function SyncPosts(props: Props) {
 
     return <>{
         props.posts.map(post => <Post post={post} key={post.id}/>)
-    }</>
+    }</>;
 }
 
 const mapStateToProps = (state: IRootState) => {

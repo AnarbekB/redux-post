@@ -1,6 +1,6 @@
 export interface IPost {
     id: number,
-    name: string
+    title: string
 }
 
 export interface IPostState {
