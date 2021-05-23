@@ -1,4 +1,4 @@
-import React, {ChangeEvent, SyntheticEvent, useState} from "react";
+import React, {ChangeEvent, ReactElement, SyntheticEvent, useState} from "react";
 import {connect} from "react-redux";
 import {ICreatePostAction, IPost} from "../../interfaces";
 import {createPost} from "../../redux/actions/posts";
@@ -16,7 +16,7 @@ interface Props {
     postNameEmptyMessage: string|null
 }
 
-function PostForm(props: Props) {
+function PostForm(props: Props): ReactElement {
     const [title, setTitle] = useState('');
 
     const submitHandler = (event: SyntheticEvent) => {

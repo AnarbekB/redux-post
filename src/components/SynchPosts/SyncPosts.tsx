@@ -1,4 +1,4 @@
-import React from "react";
+import React, {ReactElement} from "react";
 import {connect} from "react-redux";
 import {IPost} from "../../interfaces";
 import {Post} from "../Post";
@@ -8,7 +8,7 @@ interface Props {
     posts: IPost[]
 }
 
-function SyncPosts(props: Props) {
+function SyncPosts(props: Props): ReactElement {
     if (props.posts.length === 0) {
         return <p className="text-center">Posts not found</p>
     }

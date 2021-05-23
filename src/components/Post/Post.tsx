@@ -1,11 +1,11 @@
-import React from "react";
+import React, {ReactElement} from "react";
 import {IPost} from "../../interfaces";
 
 interface Props {
     post: IPost
 }
 
-export function Post(props : Props) {
+export function Post(props : Props): ReactElement {
     return (
         <div className="card">
             <div className="card-body">

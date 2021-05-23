@@ -1,11 +1,11 @@
-import React, {Dispatch} from "react";
+import React, {Dispatch, ReactElement} from "react";
 import {useDispatch, useSelector} from "react-redux";
 import {fetchPosts} from "../../redux/actions/posts";
 import {IPost, IRootState} from "../../interfaces";
 import {Post} from "../Post";
 import {Loader} from "../Loader";
 
-export function AsyncPosts() {
+export function AsyncPosts(): ReactElement {
     const dispatch: Dispatch<any> = useDispatch();
     const posts: IPost[] = useSelector((state: IRootState) => {
         return state.posts.fetchedPost

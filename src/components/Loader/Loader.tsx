@@ -1,6 +1,6 @@
-import React from "react";
+import React, {ReactElement} from "react";
 
-export function Loader() {
+export function Loader(): ReactElement {
     return (
         <div className="spinner-border text-danger" role="status">
             <span className="sr-only"/>
