@@ -1,11 +1,11 @@
-import {IAction} from "../../interfaces";
+import {IAction, IAlert} from "../../interfaces";
 import {HIDE_ALERT, SHOW_ALERT} from "../constants/alert";
 import {IShowAlertAction} from "../../interfaces";
 
-export function showAlert(message: string): IShowAlertAction {
+export function showAlert(alert: IAlert): IShowAlertAction {
     return {
         type: SHOW_ALERT,
-        message: message
+        alert: alert
     } as IShowAlertAction;
 }
 

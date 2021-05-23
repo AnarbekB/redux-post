@@ -1,19 +1,14 @@
 import React, {ChangeEvent, ReactElement, SyntheticEvent, useState} from "react";
 import {connect} from "react-redux";
-import {ICreatePostAction, IPost} from "../../interfaces";
+import {IAction, IAlert, ICreatePostAction, IPost, IShowAlertAction} from "../../interfaces";
 import {createPost} from "../../redux/actions/posts";
-import {showAlert, hideAlert} from "../../redux/actions/alert";
-import {Alert} from "../Alert";
-import {IRootState} from "../../interfaces";
-import {IShowAlertAction} from "../../interfaces";
-import {IAction} from "../../interfaces";
+import {hideAlert, showAlert} from "../../redux/actions/alert";
+import {POST_NAME_IS_REQUIRED} from "../../constants/alerts-code";
 
 interface Props {
     createPost(post: IPost): ICreatePostAction;
-    showAlert(message: string): IShowAlertAction;
+    showAlert(alert: IAlert): IShowAlertAction;
     hideAlert(): IAction;
-    postNameEmpty: boolean
-    postNameEmptyMessage: string|null
 }
 
 function PostForm(props: Props): ReactElement {
@@ -23,16 +18,13 @@ function PostForm(props: Props): ReactElement {
         event.preventDefault();
 
         if (title.trim().length === 0) {
-            return props.showAlert("Name post is required");
+            props.showAlert({id: POST_NAME_IS_REQUIRED, message: "Name post is required"} as IAlert);
+            return;
         }
 
         let newPost: IPost = {id: Number(Date.now().toString()), title: title};
         props.createPost(newPost);
         setTitle('');
-
-        if (props.postNameEmpty) {
-            return props.hideAlert();
-        }
     }
 
     const changeInputHandler = (event: ChangeEvent<HTMLInputElement>): void => {
@@ -42,9 +34,6 @@ function PostForm(props: Props): ReactElement {
 
     return (
         <form onSubmit={submitHandler}>
-
-            {props.postNameEmpty && <Alert message={props.postNameEmptyMessage}/>}
-
             <div className="form-group">
                 <h4>Create new post</h4>
                 <div className="input-group mb-3">
@@ -69,11 +58,4 @@ const mapDispatchToProps = {
     createPost, showAlert, hideAlert
 };
 
-const mapStateToProps = (state: IRootState) => {
-    return {
-        postNameEmpty: state.alert.postNameEmpty,
-        postNameEmptyMessage: state.alert.postNameEmptyMessage
-    } as Props;
-}
-
-export default connect(mapStateToProps, mapDispatchToProps)(PostForm);
+export default connect(null, mapDispatchToProps)(PostForm);

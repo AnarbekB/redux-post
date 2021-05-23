@@ -1,10 +1,14 @@
 import {IAction} from "./application";
 
 export interface IAlertState {
-    postNameEmpty: boolean
-    postNameEmptyMessage: string|null
+    alerts: IAlert[]
 }
 
 export interface IShowAlertAction extends IAction {
+    alert: IAlert
+}
+
+export interface IAlert {
+    id: number;
     message: string;
 }

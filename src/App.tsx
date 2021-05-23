@@ -2,10 +2,12 @@ import React from 'react';
 import {AsyncPosts} from "./components/AsynchPosts";
 import SyncPosts from "./components/SynchPosts/SyncPosts";
 import PostForm from "./components/PostForm/PostForm";
+import AlertList from "./components/AlertList/AlertList";
 
 function App() {
   return (
     <div className="container">
+        <AlertList />
       <div className='row'>
           <div className='col'>
               <PostForm />
