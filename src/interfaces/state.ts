@@ -1,9 +1,9 @@
 import {IPostState} from "./post";
-import {IApplicationState} from "./application";
 import {IAlertState} from "./alert";
+import {ILoaderState} from "./loader";
 
 export interface IRootState {
     posts: IPostState,
-    app: IApplicationState,
+    app: ILoaderState,
     alert: IAlertState
 }

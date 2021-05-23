@@ -1,12 +1,12 @@
 import React, {ChangeEvent, SyntheticEvent, useState} from "react";
 import {connect} from "react-redux";
-import {ICreatePostAction, IPost} from "../../types";
+import {ICreatePostAction, IPost} from "../../interfaces";
 import {createPost} from "../../redux/actions/posts";
 import {showAlert, hideAlert} from "../../redux/actions/alert";
 import {Alert} from "../Alert";
-import {IRootState} from "../../types/state";
-import {IShowAlertAction} from "../../types/alert";
-import {IAction} from "../../types/application";
+import {IRootState} from "../../interfaces";
+import {IShowAlertAction} from "../../interfaces";
+import {IAction} from "../../interfaces";
 
 interface Props {
     createPost(post: IPost): ICreatePostAction;

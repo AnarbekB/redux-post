@@ -1,5 +1,5 @@
-import {HIDE_LOADER, SHOW_LOADER} from "../types";
-import {IAction} from "../../types/application";
+import {HIDE_LOADER, SHOW_LOADER} from "../constants/loader";
+import {IAction} from "../../interfaces";
 
 export function showLoader(): IAction {
     return {

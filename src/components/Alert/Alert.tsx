@@ -7,7 +7,7 @@ interface Props {
 export function Alert(props: Props) {
     return (
         <div className="alert alert-danger" role="alert">
-            {props.message ? props.message : 'Error'}
+            {props.message ? props.message : 'Error operation'}
         </div>
     )
 }

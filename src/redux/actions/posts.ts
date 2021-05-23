@@ -1,6 +1,7 @@
-import {CREATE_POST, FETCH_POSTS} from "../types";
-import {ICreatePostAction, IPost} from "../../types";
-import {hideLoader, showLoader} from "./application";
+import {CREATE_POST, FETCH_POSTS} from "../constants/post";
+import {IAction, ICreatePostAction, IPost} from "../../interfaces";
+import {hideLoader, showLoader} from "./loader";
+import {Dispatch} from "react";
 
 export function createPost(post: IPost): ICreatePostAction {
     return {
@@ -10,7 +11,7 @@ export function createPost(post: IPost): ICreatePostAction {
 }
 
 export function fetchPosts() {
-    return async (dispatch: any) => {
+    return async (dispatch: Dispatch<ICreatePostAction|IAction>) => {
         dispatch(showLoader());
 
         const response = await fetch('https://jsonplaceholder.typicode.com/posts?_limit=5');

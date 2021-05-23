@@ -1,5 +1,5 @@
-import {ICreatePostAction, IPostState} from "../../types";
-import {CREATE_POST, FETCH_POSTS} from "../types";
+import {ICreatePostAction, IPostState} from "../../interfaces";
+import {CREATE_POST, FETCH_POSTS} from "../constants/post";
 
 const initialState: IPostState = {
     posts: [{id: 3, title: 'Hello'}, {id: 2, title: 'Redux'}],

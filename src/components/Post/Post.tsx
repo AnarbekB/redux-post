@@ -1,5 +1,5 @@
 import React from "react";
-import {IPost} from "../../types";
+import {IPost} from "../../interfaces";
 
 interface Props {
     post: IPost

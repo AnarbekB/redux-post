@@ -1,8 +1,8 @@
 import React from "react";
 import {connect} from "react-redux";
-import {IPost} from "../../types";
+import {IPost} from "../../interfaces";
 import {Post} from "../Post";
-import {IRootState} from "../../types/state";
+import {IRootState} from "../../interfaces";
 
 interface Props {
     posts: IPost[]

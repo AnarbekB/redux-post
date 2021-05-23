@@ -1,6 +1,6 @@
-import {IAction} from "../../types/application";
-import {HIDE_ALERT, SHOW_ALERT} from "../types";
-import {IShowAlertAction} from "../../types/alert";
+import {IAction} from "../../interfaces";
+import {HIDE_ALERT, SHOW_ALERT} from "../constants/alert";
+import {IShowAlertAction} from "../../interfaces";
 
 export function showAlert(message: string): IShowAlertAction {
     return {

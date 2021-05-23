@@ -1,5 +1,5 @@
-import {HIDE_ALERT, SHOW_ALERT} from "../types";
-import {IAlertState, IShowAlertAction} from "../../types/alert";
+import {HIDE_ALERT, SHOW_ALERT} from "../constants/alert";
+import {IAlertState, IShowAlertAction} from "../../interfaces";
 
 const initialState: IAlertState = {
     postNameEmpty: false,

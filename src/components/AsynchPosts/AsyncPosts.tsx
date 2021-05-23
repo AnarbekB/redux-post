@@ -1,16 +1,16 @@
-import React from "react";
+import React, {Dispatch} from "react";
 import {useDispatch, useSelector} from "react-redux";
 import {fetchPosts} from "../../redux/actions/posts";
-import {IRootState} from "../../types/state";
+import {IPost, IRootState} from "../../interfaces";
 import {Post} from "../Post";
 import {Loader} from "../Loader";
 
 export function AsyncPosts() {
-    const dispatch = useDispatch();
-    const posts = useSelector((state: IRootState) => {
+    const dispatch: Dispatch<any> = useDispatch();
+    const posts: IPost[] = useSelector((state: IRootState) => {
         return state.posts.fetchedPost
     });
-    const loading = useSelector((state: IRootState) => {
+    const loading: boolean = useSelector((state: IRootState) => {
         return state.app.loading;
     });
 
