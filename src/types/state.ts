@@ -1,5 +1,7 @@
 import {IPostState} from "./post";
+import {IApplicationState} from "./application";
 
 export interface IRootState {
-    posts: IPostState
+    posts: IPostState,
+    app: IApplicationState
 }

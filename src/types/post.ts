@@ -1,3 +1,5 @@
+import {IAction} from "./application";
+
 export interface IPost {
     id: number,
     title: string
@@ -8,7 +10,6 @@ export interface IPostState {
     fetchedPost: IPost[]
 }
 
-export interface ICreatePostAction {
-    type: string,
+export interface ICreatePostAction extends IAction {
     payload: IPost
 }
