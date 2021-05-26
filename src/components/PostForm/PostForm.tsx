@@ -1,4 +1,4 @@
-import React, {ChangeEvent, ReactElement, SyntheticEvent, useState} from "react";
+import React, {ChangeEvent, FormEvent, ReactElement, useState} from "react";
 import {connect} from "react-redux";
 import {IAction, IAlert, ICreatePostAction, IPost, IShowAlertAction} from "../../interfaces";
 import {createPost} from "../../redux/actions/posts";
@@ -8,13 +8,13 @@ import {POST_NAME_IS_REQUIRED} from "../../constants/alerts-code";
 interface Props {
     createPost(post: IPost): ICreatePostAction;
     showAlert(alert: IAlert): IShowAlertAction;
-    hideAlert(): IAction;
+    hideAlert(alertId: number): IAction;
 }
 
 function PostForm(props: Props): ReactElement {
     const [title, setTitle] = useState('');
 
-    const submitHandler = (event: SyntheticEvent) => {
+    const submitHandler = (event: FormEvent) => {
         event.preventDefault();
 
         if (title.trim().length === 0) {

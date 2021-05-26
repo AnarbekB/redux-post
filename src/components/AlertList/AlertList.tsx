@@ -7,12 +7,16 @@ import {Alert} from "../Alert";
 interface Props {
     alerts: IAlert[];
 
-    hideAlert(): IAction;
+    hideAlert(alertId: number): IAction;
 }
 
 function AlertList(props: Props): ReactElement {
+    const deleteAlert = (alertId: number): void => {
+        props.hideAlert(alertId);
+    }
+
     return <>{
-            props.alerts.map(alert => <Alert message={alert.message} key={alert.id}/>)
+            props.alerts.map(alert => <Alert message={alert.message} delete={() => deleteAlert(alert.id)} key={alert.id}/>)
     }</>;
 }
 

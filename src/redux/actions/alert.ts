@@ -1,6 +1,5 @@
-import {IAction, IAlert} from "../../interfaces";
+import {IAlert, IHideAlertAction, IShowAlertAction} from "../../interfaces";
 import {HIDE_ALERT, SHOW_ALERT} from "../constants/alert";
-import {IShowAlertAction} from "../../interfaces";
 
 export function showAlert(alert: IAlert): IShowAlertAction {
     return {
@@ -9,8 +8,9 @@ export function showAlert(alert: IAlert): IShowAlertAction {
     } as IShowAlertAction;
 }
 
-export function hideAlert(): IAction {
+export function hideAlert(alertId: number): IHideAlertAction {
     return {
-        type: HIDE_ALERT
-    } as IAction;
+        type: HIDE_ALERT,
+        alert: {id: alertId} as IAlert
+    } as IHideAlertAction;
 }
