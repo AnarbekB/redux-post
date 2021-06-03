@@ -7,10 +7,12 @@ import {rootReducer} from "./redux/redusers";
 import {Provider} from 'react-redux'
 import thunk from 'redux-thunk';
 import {composeWithDevTools} from "redux-devtools-extension";
+import {detectSpamMiddleware} from "./redux/middlewares/spam";
 
 const enhancer = composeWithDevTools(
     applyMiddleware(
-        thunk
+        thunk,
+        detectSpamMiddleware
     ),
 );
 
